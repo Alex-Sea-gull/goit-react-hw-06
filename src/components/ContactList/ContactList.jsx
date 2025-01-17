@@ -1,7 +1,15 @@
+import { useDispatch, useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import s from "./ContactList.module.css";
+import { deleteContact } from "../../redux/contactsSlice";
 
-const ContactList = ({ contacts, deleteContact }) => {
+const ContactList = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector((state) => state.contacts.items);
+
+  const handleDelete = (id) => {
+    dispatch(deleteContact(id));
+  };
   return (
     <div className={s.wrapperListItem}>
       <ul className={s.contactListItem}>
@@ -11,7 +19,7 @@ const ContactList = ({ contacts, deleteContact }) => {
               name={contact.name}
               number={contact.number}
               id={contact.id}
-              deleteContact={deleteContact}
+              deleteContact={handleDelete}
             />
           </li>
         ))}

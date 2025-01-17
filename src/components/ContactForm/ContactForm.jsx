@@ -2,11 +2,22 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import s from "./ContactForm.module.css";
 import CustomField from "../CustomField/CustomField";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contactsSlice";
 
-const ContactForm = ({ addContact }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
     console.log("Form submitted with values:", values);
-    addContact(values.username, values.usernumber);
+
+    dispatch(
+      addContact({
+        id: crypto.randomUUID(),
+        name: values.username,
+        phone: values.usernumber,
+      })
+    );
     actions.resetForm();
   };
 

@@ -2,9 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 // Масив для зберігання контактів
 const initialState = {
-    contacts: {
-        items: []
-    }
+    items: []
 }
 
 const contactSlice = createSlice({
