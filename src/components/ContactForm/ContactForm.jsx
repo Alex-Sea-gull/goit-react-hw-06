@@ -15,7 +15,7 @@ const ContactForm = () => {
       addContact({
         id: crypto.randomUUID(),
         name: values.username,
-        phone: values.usernumber,
+        number: values.usernumber,
       })
     );
     actions.resetForm();
