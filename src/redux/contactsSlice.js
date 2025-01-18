@@ -5,6 +5,7 @@ const initialState = {
     items: []
 }
 
+//slice
 const contactSlice = createSlice({
     name: "contacts",
     initialState,
@@ -21,3 +22,6 @@ const contactSlice = createSlice({
 
 export const { addContact, deleteContact } = contactSlice.actions
 export const contactsReducer = contactSlice.reducer
+
+//Selector
+export const selectContacts = (state) => state.contacts.items;

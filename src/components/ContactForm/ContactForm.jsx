@@ -9,7 +9,7 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    console.log("Form submitted with values:", values);
+    // console.log("Form submitted with values:", values);
 
     dispatch(
       addContact({
